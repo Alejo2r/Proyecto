@@ -41,6 +41,12 @@ public class Poke extends javax.swing.JFrame {
         PokeTab = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         Charmander = new javax.swing.JButton();
+        Squirtle = new javax.swing.JButton();
+        Bulba = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         Fondo1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         Fondo2 = new javax.swing.JLabel();
@@ -113,13 +119,53 @@ public class Poke extends javax.swing.JFrame {
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Charmander.setBackground(new java.awt.Color(255, 51, 51));
+        Charmander.setForeground(new java.awt.Color(255, 0, 0));
         Charmander.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pokedex/Charmander.png"))); // NOI18N
         Charmander.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CharmanderActionPerformed(evt);
             }
         });
-        jPanel3.add(Charmander, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+        jPanel3.add(Charmander, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 110, 120));
+
+        Squirtle.setBackground(new java.awt.Color(51, 255, 255));
+        Squirtle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pokedex/Squirtle.png"))); // NOI18N
+        Squirtle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SquirtleActionPerformed(evt);
+            }
+        });
+        jPanel3.add(Squirtle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 100, -1));
+
+        Bulba.setBackground(new java.awt.Color(102, 255, 51));
+        Bulba.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pokedex/Bulba.png"))); // NOI18N
+        Bulba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BulbaActionPerformed(evt);
+            }
+        });
+        jPanel3.add(Bulba, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel1.setText("Selecciona  a tu Pokemon :D");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 530, 50));
+
+        jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel2.setText("Charmander");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 250, 40));
+
+        jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel3.setText("Squirtle");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 204, 0));
+        jLabel4.setText("Bulbasaur");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 510, -1, -1));
 
         Fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pokedex/fondo.png"))); // NOI18N
         Fondo1.setText("jLabel2");
@@ -135,7 +181,7 @@ public class Poke extends javax.swing.JFrame {
 
         PokeTab.addTab("tab2", jPanel4);
 
-        jPanel2.add(PokeTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 860));
+        jPanel2.add(PokeTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 840, 900));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pokedex/fondo.png"))); // NOI18N
         jPanel2.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, -1));
@@ -177,6 +223,7 @@ public class Poke extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void CharmanderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharmanderActionPerformed
+        poke.clear();
         int vida = 39;
         int ataque = 52;
         String tipo = "Fuego";
@@ -194,6 +241,28 @@ public class Poke extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null,msj);
     }//GEN-LAST:event_statsActionPerformed
+
+    private void BulbaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BulbaActionPerformed
+        poke.clear();
+        int vida = 45;
+        int ataque = 49;
+        String tipo = "Planta";
+        String nombre = "Bulbasaur";
+        Pokemon p = new Pokemon(vida,ataque,tipo,nombre);
+        poke.add(p);
+        JOptionPane.showMessageDialog(null,"Ha seleccionado a Bulbasaur");
+    }//GEN-LAST:event_BulbaActionPerformed
+
+    private void SquirtleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SquirtleActionPerformed
+        poke.clear();
+        int vida = 44;
+        int ataque = 48;
+        String tipo = "Agua";
+        String nombre = "Squirtle";
+        Pokemon p = new Pokemon(vida,ataque,tipo,nombre);
+        poke.add(p);
+        JOptionPane.showMessageDialog(null,"Ha seleccionado a Squirtle");
+    }//GEN-LAST:event_SquirtleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,6 +300,7 @@ public class Poke extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Bulba;
     private javax.swing.JButton Charmander;
     private javax.swing.JButton Entrenar;
     private javax.swing.JButton Entrenar1;
@@ -241,7 +311,12 @@ public class Poke extends javax.swing.JFrame {
     private javax.swing.JTabbedPane PokeTab;
     private javax.swing.JButton Registrar;
     private javax.swing.JButton Salir;
+    private javax.swing.JButton Squirtle;
     private javax.swing.JLabel fondo2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
