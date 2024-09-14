@@ -8,24 +8,23 @@ package pokedex;
  *
  * @author Admin
  */
-public class Pokemon {
+public class Peleas {
     public int vida;
     public int ataque;
     public String tipo;
     public String nombre;
-    public int nivel;
     public int defensa;
     public int velocidad;
-    public Pokemon(){
+    
+    public Peleas(){
         
     }
 
-    public Pokemon(int vida, int ataque, String tipo, String nombre, int nivel, int defensa, int velocidad) {
+    public Peleas(int vida, int ataque, String tipo, String nombre, int defensa, int velocidad) {
         this.vida = vida;
         this.ataque = ataque;
         this.tipo = tipo;
         this.nombre = nombre;
-        this.nivel = nivel;
         this.defensa = defensa;
         this.velocidad = velocidad;
     }
@@ -62,14 +61,6 @@ public class Pokemon {
         this.nombre = nombre;
     }
 
-    public int getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-
     public int getDefensa() {
         return defensa;
     }
@@ -85,7 +76,7 @@ public class Pokemon {
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
-   public boolean isFainted() {
+    public boolean isFainted() {
         return this.vida <= 0;
-    } 
+    }
 }
