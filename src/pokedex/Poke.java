@@ -22,11 +22,14 @@ public class Poke extends javax.swing.JFrame {
     }
     public static ArrayList <Pokemon> poke = new ArrayList();
     public static ArrayList <Peleas> enemigo = new ArrayList();
-    public static  int x = 3;
+    public static Tienda t = new Tienda();
     public static Random xd = new Random();
     public int num;
     public int vidamax; 
     public int vidaene;
+    public int oro;
+    public int niv; 
+    public int curacion;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,8 +45,9 @@ public class Poke extends javax.swing.JFrame {
         Salir = new javax.swing.JButton();
         PELEA = new javax.swing.JButton();
         stats = new javax.swing.JButton();
+        Tienda = new javax.swing.JButton();
+        Inventario = new javax.swing.JButton();
         fondo2 = new javax.swing.JLabel();
-        Entrenar1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         PokeTab = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
@@ -65,6 +69,16 @@ public class Poke extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Fondo2 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        comprarmejora = new javax.swing.JButton();
+        comprarcuras = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        fondot = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,18 +94,18 @@ public class Poke extends javax.swing.JFrame {
                 RegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 200, 40));
+        jPanel1.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 200, 40));
 
         Entrenar.setBackground(new java.awt.Color(255, 204, 204));
         Entrenar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Entrenar.setForeground(new java.awt.Color(0, 0, 0));
-        Entrenar.setText("Entrenar Pokemon");
+        Entrenar.setText("Mejorar Pokemon");
         Entrenar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntrenarActionPerformed(evt);
             }
         });
-        jPanel1.add(Entrenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 180, 40));
+        jPanel1.add(Entrenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 180, 40));
 
         Salir.setBackground(new java.awt.Color(255, 204, 204));
         Salir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -113,7 +127,7 @@ public class Poke extends javax.swing.JFrame {
                 PELEAActionPerformed(evt);
             }
         });
-        jPanel1.add(PELEA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 180, 40));
+        jPanel1.add(PELEA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 180, 40));
 
         stats.setBackground(new java.awt.Color(255, 204, 204));
         stats.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -124,16 +138,32 @@ public class Poke extends javax.swing.JFrame {
                 statsActionPerformed(evt);
             }
         });
-        jPanel1.add(stats, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 180, 40));
+        jPanel1.add(stats, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 180, 40));
+
+        Tienda.setBackground(new java.awt.Color(255, 204, 204));
+        Tienda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Tienda.setForeground(new java.awt.Color(0, 0, 0));
+        Tienda.setText("Comprar Objetos");
+        Tienda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TiendaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Tienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 170, 40));
+
+        Inventario.setBackground(new java.awt.Color(255, 204, 204));
+        Inventario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Inventario.setForeground(new java.awt.Color(0, 0, 0));
+        Inventario.setText("Inventario");
+        Inventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InventarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 150, 40));
 
         fondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pokedex/fondo2.jpg"))); // NOI18N
         jPanel1.add(fondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 240, 810));
-
-        Entrenar1.setBackground(new java.awt.Color(255, 204, 204));
-        Entrenar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Entrenar1.setForeground(new java.awt.Color(0, 0, 0));
-        Entrenar1.setText("Entrenar Pokemon");
-        jPanel1.add(Entrenar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 180, 40));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -189,7 +219,7 @@ public class Poke extends javax.swing.JFrame {
 
         Fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pokedex/fondo.png"))); // NOI18N
         Fondo1.setText("jLabel2");
-        jPanel3.add(Fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 834, 820));
+        jPanel3.add(Fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 820));
 
         PokeTab.addTab("tab1", jPanel3);
 
@@ -252,6 +282,62 @@ public class Poke extends javax.swing.JFrame {
 
         PokeTab.addTab("tab2", jPanel4);
 
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        comprarmejora.setBackground(new java.awt.Color(255, 255, 0));
+        comprarmejora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pokedex/mejora.png"))); // NOI18N
+        comprarmejora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comprarmejoraActionPerformed(evt);
+            }
+        });
+        jPanel5.add(comprarmejora, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 110, -1));
+
+        comprarcuras.setBackground(new java.awt.Color(0, 255, 51));
+        comprarcuras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pokedex/Heal.png"))); // NOI18N
+        comprarcuras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comprarcurasActionPerformed(evt);
+            }
+        });
+        jPanel5.add(comprarcuras, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, -1, 130));
+
+        jLabel8.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Bienvenido a la PokeTienda");
+        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 520, 50));
+
+        jLabel9.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Que desea comprar?");
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Bayas de Mejora");
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 570, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("MegaPocion");
+        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 570, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("300 y");
+        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 600, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("150 Y");
+        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 590, -1, -1));
+
+        fondot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pokedex/tienda..jpg"))); // NOI18N
+        fondot.setText("jLabel8");
+        jPanel5.add(fondot, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 849, 750));
+
+        PokeTab.addTab("tab3", jPanel5);
+
         jPanel2.add(PokeTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 840, 900));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pokedex/fondo.png"))); // NOI18N
@@ -289,6 +375,7 @@ public class Poke extends javax.swing.JFrame {
       JOptionPane.showMessageDialog(null,"Elija su pokemon antes de pelear!"); 
       }else{
       PokeTab.setSelectedIndex(1);
+      Lucha.append("Que comience la batalla!"); 
       Peleas e1 = snorlax();
       enemigo.add(e1);
       Peleas e2 =  ponyta();
@@ -355,8 +442,25 @@ public class Poke extends javax.swing.JFrame {
     }//GEN-LAST:event_SquirtleActionPerformed
 
     private void EntrenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrenarActionPerformed
-       
-        
+       int num = xd.nextInt(9,21);
+       if(t.getMejora()<5){
+           JOptionPane.showMessageDialog(null,"Bayas Pokemon Insuficientes");
+       }else{
+           int resta = t.getMejora()-5;
+           int vida = poke.get(0).getVida()+num;
+           int ataque = poke.get(0).getAtaque()+num;
+           int vel = poke.get(0).getVelocidad()+num;
+           int def = poke.get(0).getDefensa()+num;
+           int nivel = poke.get(0).getNivel()+1;
+           poke.get(0).setVida(vida);
+           poke.get(0).setAtaque(ataque);
+           poke.get(0).setVelocidad(vel);
+           poke.get(0).setDefensa(def);
+           poke.get(0).setNivel(nivel);
+           t.setMejora(resta);
+           String msj = "Pokemon: "+poke.get(0).getNombre()+"\nVida: "+poke.get(0).getVida()+"   Nivel: "+poke.get(0).getNivel() +"\nAtaque: "+poke.get(0).getAtaque()+"\nDefensa: "+poke.get(0).getDefensa()+"\nVelocidad: "+poke.get(0).getVelocidad()+"\nTipo: "+poke.get(0).getTipo();
+           JOptionPane.showMessageDialog(null,msj);
+       }
     }//GEN-LAST:event_EntrenarActionPerformed
 
     private void HuirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HuirActionPerformed
@@ -364,15 +468,17 @@ public class Poke extends javax.swing.JFrame {
     }//GEN-LAST:event_HuirActionPerformed
 
     private void CurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CurarActionPerformed
+        int x = t.getCuracion();
         int vida = poke.get(0).getVida();
-        if(x > 0 && vidamax > poke.get(0).getVida()){
+        if(t.getCuracion() > 0 && vidamax > poke.get(0).getVida()){
          int c = 50;
          vida += c;
          if(vidamax<vida){
              vida = vidamax;
          }
          poke.get(0).setVida(vida);   
-         x--;
+         int resta = x--;
+         t.setCuracion(resta);
           JOptionPane.showMessageDialog(null,"Curacion Realizada! PS: "+poke.get(0).getVida());  
        }else if(x == 0){
          JOptionPane.showMessageDialog(null,"Se han agotado tus pociones :c ");  
@@ -383,7 +489,9 @@ public class Poke extends javax.swing.JFrame {
     }//GEN-LAST:event_CurarActionPerformed
 
     private void AtaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtaqueActionPerformed
-       Lucha.append("Que comience la batalla!");  
+       
+       int cantidad;
+       int cantidad2;
        if(poke.isEmpty()){
           JOptionPane.showMessageDialog(null,"Elija su pokemon antes de pelear!");  
        }else{
@@ -405,17 +513,67 @@ public class Poke extends javax.swing.JFrame {
            }
                 if(poke.get(0).isFainted()){
                JOptionPane.showMessageDialog(null,poke.get(0).getNombre()+" Ha sido derrotado!");
-               x = 3;
                poke.get(0).setVida(vidamax);
+               enemigo.get(num).setVida(vidaene);
                Lucha.setText("");
        }else if(enemigo.get(num).isFainted()){
                  JOptionPane.showMessageDialog(null,enemigo.get(num).getNombre()+" Ha sido derrotado!");    
-                 x = 3;
                  Lucha.setText("");
+                 poke.get(0).setVida(vidamax);
                  enemigo.get(num).setVida(vidaene);
+                 
+                 int aleatorio = xd.nextInt(2);
+                 switch(aleatorio){
+                     case 0:
+                       oro = 300;
+                       niv = 1;
+                         break;
+                         
+                     case 1:
+                         oro = 500;
+                       niv = 0;
+                         break;
+                 }
+                 cantidad = t.getOro()+oro;
+                 cantidad2 = t.getMejora()+niv;
+                 t.setOro(cantidad);
+                 t.setMejora(cantidad2);
                 }
        }
     }//GEN-LAST:event_AtaqueActionPerformed
+
+    private void TiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TiendaActionPerformed
+       PokeTab.setSelectedIndex(2); 
+    }//GEN-LAST:event_TiendaActionPerformed
+
+    private void comprarmejoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarmejoraActionPerformed
+        if(t.getOro()<150){
+            JOptionPane.showMessageDialog(null,"Dinero Insuficiente");    
+        }else{
+            niv++;
+            int resta =  t.getOro()-150;
+            t.setOro(resta);
+            t.setMejora(niv);
+            JOptionPane.showMessageDialog(null,"Gracias por su PokeCompra"+"\nRevise su Inventario");  
+        }
+        
+    }//GEN-LAST:event_comprarmejoraActionPerformed
+
+    private void comprarcurasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarcurasActionPerformed
+        if(t.getOro()<300){
+            JOptionPane.showMessageDialog(null,"Dinero Insuficiente");    
+        }else{
+            curacion++;
+            int resta =  t.getOro()-300;
+            t.setOro(resta);
+            t.setCuracion(curacion);
+            JOptionPane.showMessageDialog(null,"Gracias por su PokeCompra"+"\nRevise su Inventario");  
+        }
+    }//GEN-LAST:event_comprarcurasActionPerformed
+
+    private void InventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioActionPerformed
+         JOptionPane.showMessageDialog(null,"Inventario"+"\nOro: "+t.getOro()+"\nBayas de mejora: "+t.getMejora()+"\nPociones de curacion: "+t.getCuracion());  
+    }//GEN-LAST:event_InventarioActionPerformed
   public void attack(ArrayList <Peleas> opponent, int num) {
         int damage = (poke.get(0).getAtaque() - enemigo.get(num).getDefensa()) + xd.nextInt(10 , 20); // Daño con un pequeño elemento aleatorio
         if (damage < 0) damage = 1; // Asegurarse de que el daño mínimo sea 1
@@ -502,29 +660,40 @@ public class Poke extends javax.swing.JFrame {
     private javax.swing.JButton Charmander;
     private javax.swing.JButton Curar;
     private javax.swing.JButton Entrenar;
-    private javax.swing.JButton Entrenar1;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Fondo1;
     private javax.swing.JLabel Fondo2;
     private javax.swing.JButton Huir;
+    private javax.swing.JButton Inventario;
     private javax.swing.JTextArea Lucha;
     private javax.swing.JButton PELEA;
     private javax.swing.JTabbedPane PokeTab;
     private javax.swing.JButton Registrar;
     private javax.swing.JButton Salir;
     private javax.swing.JButton Squirtle;
+    private javax.swing.JButton Tienda;
+    private javax.swing.JButton comprarcuras;
+    private javax.swing.JButton comprarmejora;
     private javax.swing.JLabel fondo2;
+    private javax.swing.JLabel fondot;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton stats;
     // End of variables declaration//GEN-END:variables
